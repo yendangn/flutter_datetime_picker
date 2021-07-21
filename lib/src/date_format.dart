@@ -246,7 +246,7 @@ String formatDate(DateTime date, List<String> formats, LocaleType locale) {
       } else if (locale == LocaleType.gr) {
         return formatDate(date, [D, ' ', dd, ' ', M], locale);
       } else {
-        return formatDate(date, [D, ' ', M, ' ', dd], locale);
+        return formatDate(date, [dd, ' ', M, ' ', ' ', ', ', yyyy], locale);
       }
     } else {
       if (locale == LocaleType.zh) {
@@ -266,7 +266,7 @@ String formatDate(DateTime date, List<String> formats, LocaleType locale) {
       } else if (locale == LocaleType.gr) {
         return formatDate(date, [D, ' ', dd, ' ', M, ' ', yyyy], locale);
       } else {
-        return formatDate(date, [D, ' ', M, ' ', dd, ', ', yyyy], locale);
+        return formatDate(date, [dd, ' ', M, ' ', ' ', ', ', yyyy], locale);
       }
     }
   }
