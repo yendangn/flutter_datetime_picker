@@ -518,6 +518,7 @@ class Time12hPickerModel extends CommonPickerModel {
 class DateTimePickerModel extends CommonPickerModel {
   DateTime? maxTime;
   DateTime? minTime;
+  bool initial = true;
 
   DateTimePickerModel(
       {DateTime? currentTime,
@@ -586,6 +587,9 @@ class DateTimePickerModel extends CommonPickerModel {
     } else if (isAtSameDay(maxTime, time)) {
       var index = min(maxTime!.hour, _currentMiddleIndex);
       this.setMiddleIndex(index);
+    } else if (initial) {
+      this.setMiddleIndex(currentTime.hour);
+      initial = false;
     }
   }
 
@@ -604,6 +608,9 @@ class DateTimePickerModel extends CommonPickerModel {
       if (_currentRightIndex > maxIndex) {
         _currentRightIndex = maxIndex;
       }
+    } else if (initial) {
+      this.setRightIndex(currentTime.minute);
+      initial = false;
     }
   }
 
